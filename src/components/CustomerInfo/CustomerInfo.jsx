@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import './CustomerInfo.css'
 
 function CustomerInfo() {
@@ -15,12 +14,11 @@ function CustomerInfo() {
     const [inputCity, setInputCity] = useState('');
     const [inputZip, setInputZip] = useState('');
 
-
-    const history = useHistory();
-    console.log(history);
+    const dispatch = useDispatch();
 
     // Called when the submit button is pressed
-    const addCustomer = (event) => {
+    const onSubmit = (event) => {
+        
         event.preventDefault();
 
         const newCustomer = {
@@ -31,27 +29,19 @@ function CustomerInfo() {
         };
 
         console.log(`Adding ${newCustomer.customer_name} to customer db`);
-        debugger;
-        // dispatch
+        dispatch({ type: 'ADD_CUSTOMER', payload: newCustomer });
+
+        setInputName('');
+        setInputAddress('');
+        setInputCity('');
+        setInputZip('');
+
     };
-
-    // // Called when the submit button is pressed
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     addStudent(student);
-    //     clearStudentFields();
-    // }
-
-    // // Clear fields of the form by reseting the user
-    // const clearStudentFields = () => {
-    //     setStudent('');
-    // }
-
 
     return (
         <>
             <h1>Add Customer Info</h1>
-            <form onSubmit={addCustomer}>
+            <form onSubmit={onSubmit}>
                 <table id='cust-info-table'>
                     <tbody>
                         <tr>
@@ -87,7 +77,7 @@ function CustomerInfo() {
                         <tr>
                             <td>
                                 <p>Zip</p>
-                                </td>
+                            </td>
                             <td>
                                 <input onChange={(event) => setInputZip(event.target.value)}
                                     placeholder="Zip"
