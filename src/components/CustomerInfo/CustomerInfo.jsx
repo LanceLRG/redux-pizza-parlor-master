@@ -13,6 +13,7 @@ function CustomerInfo() {
     const [inputAddress, setInputAddress] = useState('');
     const [inputCity, setInputCity] = useState('');
     const [inputZip, setInputZip] = useState('');
+    const [type, setType] = useState('')
 
     const dispatch = useDispatch();
 
@@ -25,7 +26,8 @@ function CustomerInfo() {
             customer_name: inputName,
             street_address: inputAddress,
             city: inputCity,
-            zip: inputZip
+            zip: inputZip,
+            type: type,
         };
 
         console.log(`Adding ${newCustomer.customer_name} to customer db`);
@@ -86,11 +88,21 @@ function CustomerInfo() {
                                     value={inputZip} />
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" name="type" id="delivery" value='delivery' checked/>
+                                <label for='delivery'>Delivery</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="type" id="pick-up" value='pick-ip'/>
+                                <label for='pick-up'>Pick-up</label>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <p><input type="submit" value="Submit" /></p>
             </form>
-         </>
+        </>
     );
 }
 
