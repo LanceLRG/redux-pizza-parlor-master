@@ -18,7 +18,7 @@ function Header() {
                         <li><Link to="/customerinfo">Customer Info</Link></li>
                     </ul>
                 </nav>
-
+                <p id="checkout">Checkout Total:</p>
             </header>
         </div>
     );
