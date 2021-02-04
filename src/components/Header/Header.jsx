@@ -15,7 +15,7 @@ function Header() {
                     <ul>
                         <li> <Link to="/">Home</Link></li>
                         <li><Link to="/checkout">Checkout</Link></li>
-                        <li><Link to="/customerinfo">CustomerInfo</Link></li>
+                        <li><Link to="/customerinfo">Customer Info</Link></li>
                     </ul>
                 </nav>
 

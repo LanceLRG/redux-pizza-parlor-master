@@ -1,3 +1,14 @@
 header {
-    
+    font-size: 2em;
+    height: 6em;
+    text-align: left;
+    padding: 2em;
+    background-color: beige;
 }
+
+ul {
+    text-align: center;
+    list-style-type: none;
+    color: aliceblue;
+}
+
