@@ -18,6 +18,7 @@ function App() {
    
         <Header/>
         <Switch>
+          
           <Route path='/customerinfo' component={CustomerInfo} />
           <Route path='/checkout' component={Checkout} />
           <Route path='/admin' component={Admin} />

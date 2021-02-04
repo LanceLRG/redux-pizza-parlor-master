@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './CustomerInfo.css'
 
 function CustomerInfo() {
@@ -18,7 +18,7 @@ function CustomerInfo() {
 
     // Called when the submit button is pressed
     const onSubmit = (event) => {
-        
+
         event.preventDefault();
 
         const newCustomer = {
@@ -37,6 +37,8 @@ function CustomerInfo() {
         setInputZip('');
 
     };
+
+    const reduxStore = useSelector(store => store);
 
     return (
         <>
@@ -88,7 +90,7 @@ function CustomerInfo() {
                 </table>
                 <p><input type="submit" value="Submit" /></p>
             </form>
-        </>
+         </>
     );
 }
 
