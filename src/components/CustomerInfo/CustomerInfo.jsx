@@ -31,7 +31,7 @@ function CustomerInfo() {
         };
 
         console.log(`Adding ${newCustomer.customer_name} to customer db`);
-        dispatch({ type: 'ADD_CUSTOMER', payload: newCustomer });
+        dispatch({ type: 'ADD_INFO', payload: newCustomer });
 
         setInputName('');
         setInputAddress('');
@@ -88,13 +88,13 @@ function CustomerInfo() {
                                     value={inputZip} />
                             </td>
                         </tr>
-                        <tr>
+                        <tr id='radio-btns'>
                             <td>
-                                <input type="radio" name="type" id="delivery" value='delivery' checked/>
+                                <input type="radio" name="type" id="delivery" value='delivery' checked />
                                 <label for='delivery'>Delivery</label>
                             </td>
                             <td>
-                                <input type="radio" name="type" id="pick-up" value='pick-ip'/>
+                                <input type="radio" name="type" id="pick-up" value='pick-up' />
                                 <label for='pick-up'>Pick-up</label>
                             </td>
                         </tr>
