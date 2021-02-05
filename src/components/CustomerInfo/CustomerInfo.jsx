@@ -41,6 +41,7 @@ function CustomerInfo() {
         setInputCity('');
         setInputZip('');
         setType('');
+
     };
 
     return (
@@ -55,7 +56,6 @@ function CustomerInfo() {
                             </td>
                             <td>
                                 <input onChange={(event) => setInputName(event.target.value)}
-                                    placeholder="Customer Name"
                                     value={inputName} />
                             </td>
                         </tr>
@@ -65,7 +65,6 @@ function CustomerInfo() {
                             </td>
                             <td>
                                 <input onChange={(event) => setInputAddress(event.target.value)}
-                                    placeholder="Address"
                                     value={inputAddress} />
                             </td>
                         </tr>
@@ -75,7 +74,6 @@ function CustomerInfo() {
                             </td>
                             <td>
                                 <input onChange={(event) => setInputCity(event.target.value)}
-                                    placeholder="City"
                                     value={inputCity} />
                             </td>
                         </tr>
@@ -85,23 +83,22 @@ function CustomerInfo() {
                             </td>
                             <td>
                                 <input onChange={(event) => setInputZip(event.target.value)}
-                                    placeholder="Zip"
                                     value={inputZip} />
                             </td>
                         </tr>
                         <tr id='radio-btns'>
                             <td>
-                                <input type="radio" name="type" id="delivery" onClick={() => setType('Delivery')}/>
+                                <input type="radio" name="acquisitionType" value="0" id="delivery" onClick={() => setType('Delivery')} />
                                 <label for='delivery'>Delivery</label>
-                            </td>
-                            <td>
-                                <input type="radio" name="type" id="pick-up" onClick={() => setType('Pick-up')}/>
+                                <input type="radio" name="acquisitionType" vaule="0" id="pick-up" onClick={() => setType('Pick-up')} />
                                 <label for='pick-up'>Pick-up</label>
                             </td>
                         </tr>
+                        <tr>
+                            <p><input id='submit-btn' type="submit" value="Submit" /></p>
+                        </tr>
                     </tbody>
                 </table>
-                <p><input type="submit" value="Submit" /></p>
             </form>
         </>
     );
