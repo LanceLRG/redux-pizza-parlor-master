@@ -10,16 +10,25 @@ function Header() {
 
     const checkTot = useSelector(store => store.pizzaReducer);
 
-    const pricer = (checkTot.price, 0) ; {
-        const checkoutCost = checkTot.price.reduce(pizza, 0)
+    // const pricer = (checkTot.price, 0) ; {
+    //     const checkoutCost = checkTot.price.reduce(pizza, 0)
+    // }
+
+    const cart = useSelector(store => store.pizzaReducer)
+
+    const getTotal = () => {
+        let total = 0;
+        for (let product of cart) {
+            total += Number(product.price)
+        }
+        return total;
     }
  
     return (
         <div>
             <header className='App-header'>
                 <h1 className='App-title'>Prime Pizza</h1>
-               <p id="checkout">Checkout Total:{checkoutCost}</p>
-
+              <p id="checkout">Total Price is: ${getTotal()}</p>
                 <nav>
                     <ul>
                         <li> <Link to="/">Home</Link></li>
