@@ -1,0 +1,28 @@
+header {
+    font-size: 2em;
+    height: 4em;
+    text-align: left;
+    padding: 2em;
+    background-color: beige;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    text-align: center;
+    list-style-type: none;
+    color: aliceblue;
+    margin-top: 2em;
+
+}
+
+.App-title {
+    margin-bottom: 1em;
+    position: absolute;
+    top: 1px;
+}
+
+#checkout {
+    text-align: right;
+}

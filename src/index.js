@@ -15,6 +15,10 @@ const pizzaReducer = (state = [], action) => {
     if (action.type === 'DELETE_PIZZA') {
         return action.payload;
     }
+    if (action.type === 'CHARGE_PIZZA') {
+        totalPrice += action.payload.price
+        return totalPrice;
+    }
     return state;
 };
 
