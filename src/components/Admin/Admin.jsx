@@ -1,41 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import "./Admin.css"
 import { useSelector } from 'react-redux';
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
+
 
 
 // display customer name, time order placed, type (delivery or pickup) and total cost
 
-function Admin() {
+function Admin(  ) {
 
     const [adminList, setAdminList] = useState([]);
 
     //GET request for admin info
     const getInfo = () => {
-        axios.get('/')
+        axios.get('/api/order')
             .then((response) => {
                 console.log(response.data);
                 setAdminList(response.data)
             }).catch((err) => {
                 console.log(err);
-                pizzaList
             })
     }
 
-    const cart = useSelector(store => store.pizzaReducer)
+    useEffect(() => {
+        getInfo();
+    }, []);
 
-
-    const getTotal = () => {
-    let total = 0;
-    for (let product of cart) {
-        total += Number(product.price)
-    }
-    return total;
-}
-
-
-
+   
     return (
 
         <>
@@ -49,7 +42,7 @@ function Admin() {
             </thead>
             <tbody>
                     <tr>
-                        <td>{adminList.name}</td><td>{adminList.time}</td><td>{adminList.type}</td><td>${getTotal()}</td>
+                        <td>{adminList.name}</td><td>{adminList.time}</td><td>{adminList.type}</td><td>{adminList.total}</td>
                     </tr>
             </tbody>
         </table>

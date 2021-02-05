@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './CustomerInfo.css'
+import Admin from '../Admin/Admin';
+
 
 function CustomerInfo() {
 
@@ -29,6 +31,7 @@ function CustomerInfo() {
             zip: inputZip,
             type: type,
         };
+        //getInfo(newCustomer);
 
         console.log(`Adding ${newCustomer.customer_name} to customer db`);
         dispatch({ type: 'ADD_INFO', payload: newCustomer });
