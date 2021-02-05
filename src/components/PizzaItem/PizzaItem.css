@@ -1,8 +1,58 @@
 .menuItem {
     border: solid 1px black;
+    background-color: cornsilk;
+    position: relative;
+    border-radius: 5px;
     display: inline-block;
-    width: 200px;
+    width: 350px;
+    height: 450px;
     padding: 5px;
     margin: 5px;
+    vertical-align: top;
+}
 
+img {
+    border-radius: 5px;
+}
+
+.menuDescription {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    background-color: rgb(247, 238, 203);
+    border-top: solid 1px rgb(73, 73, 73);
+    border-left: solid 1px rgb(73, 73, 73);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.menuPrice {
+    position: absolute;
+    bottom: 10%;
+    right: 44%;
+    font-weight: bolder;
+}
+
+.menuItem button {
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bolder;
+    border-radius: 5px;
+    background-color: rgb(118, 185, 101);
+    position: absolute;
+    bottom: 3%;
+    right: 37%;
+    height: 40px;
+    width: 90px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.menuItem .removeButton{
+    background-color: rgb(216, 66, 61);
+    opacity: 1;
+}
+
+.menuItem button:hover{
+    opacity: 1;
 }

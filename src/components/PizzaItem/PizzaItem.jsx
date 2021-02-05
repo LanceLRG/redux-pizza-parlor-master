@@ -39,10 +39,10 @@ function PizzaItem({pizza}) {
 <div className="menuItem" key={pizza.id}>
     <img src={pizza.image_path} height="200px" width="200px"/>
     <h3>{pizza.name}</h3>
-    <p>{pizza.description}</p>
-    <p>${pizza.price}</p>
-    {addButton && <button onClick={() => addThis(pizza)}>Add</button>}
-    {removeButton && <button onClick={() => deletePizza(pizza)}>Remove</button>}
+    <p className="menuDescription">"{pizza.description}"</p>
+    <p className="menuPrice">${pizza.price}</p>
+    {addButton && <button className="addButton" onClick={() => addThis(pizza)}>Add</button>}
+    {removeButton && <button className="removeButton" onClick={() => deletePizza(pizza)}>Remove</button>}
 
 </div>   
  )

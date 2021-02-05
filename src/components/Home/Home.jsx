@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import PizzaItem from '../PizzaItem/PizzaItem'
+import './Home.css'
 
 function Home() {
 
@@ -39,12 +40,15 @@ function Home() {
     }, []);
 
     return (
+        <>
         <div>
             <h1>HOME</h1>
             <h2>Total Price is: ${getTotal()}</h2>
             <p>This is where the pizzas will be listed and order(s) can be created</p>
             {pizzaList.map(pizza => <PizzaItem pizza={pizza} />)}
         </div>
+        <button id="nextButton">NEXT</button>
+        </>
     );
 }
 
