@@ -24,9 +24,9 @@ left: 21%;
     border-radius: 5px;
     background-color: rgb(118, 185, 101);
     position: absolute;
-    right: 44%;
+    right: 32%;
+    bottom: -20%;
     height: 40px;
     width: 90px;
-    opacity: 0.6;
     transition: 0.3s;
 }
