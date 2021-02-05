@@ -32,7 +32,7 @@ function Admin(  ) {
     return (
 
         <>
-        <h1>ADMIN_PAGE</h1>
+        <h1>ADMIN VIEW</h1>
         <table className="adminTable">
             <thead>
                 <tr>

@@ -1,9 +1,16 @@
 import {useState} from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import Swal from 'sweetalert2'
+import { useHistory } from 'react-router-dom';
+import './Checkout.css'
+
+
 
 function Checkout() {
 
+
+    const history = useHistory();
     const pizzaStore = useSelector(store => store.pizzaReducer)
     const customerStore = useSelector(store => store.formReducer)
     console.log('customer store is:', customerStore);
@@ -18,6 +25,8 @@ function Checkout() {
         return total;
     }
 
+
+
     const submitCheckout = () => {
         axios.post('/api/order',
         {customer_name: customerStore[0].customer_name,
@@ -28,26 +37,37 @@ function Checkout() {
         total: getTotal(),
         pizzas: pizzaStore})
         .then ((result) => {
-        console.log(result)
     }).catch ((err) => {
         console.log(err);
     })
+
+    Swal.fire({
+        title: 'Thanks for submitting your order?',
+        text: 'Our team of highly trained goats is preparing your order now',
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonColor: 'rgb(118, 185, 101)',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'})
+        .then((result) => history.push('/')
+        )
     }
+    
 
     return(
         <>
-        <h1>Checkout goes here</h1>
         <h2>Step 3: Checkout</h2>
-        <div>
+        <div id="customerInfo">
             {customerStore[0].customer_name} <br />
             {customerStore[0].street_address} <br />
             {customerStore[0].city} <br />
             {customerStore[0].zip} <br />
         </div>
-        <div>
+        <div id="orderType">
             For {customerStore[0].type}
         </div>
-        <table>
+        <hr />
+        <table id="pizzaTable">
             <thead>
                 <tr>
                     <th>Name</th>

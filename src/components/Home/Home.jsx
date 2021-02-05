@@ -1,24 +1,25 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import PizzaItem from '../PizzaItem/PizzaItem'
 import './Home.css'
 
 function Home() {
 
+    
+
     // initialize the history to hook into the browser API
     const history = useHistory();
+    const dispatch = useDispatch();
     console.log(history);
 
     const cart = useSelector(store => store.pizzaReducer)
 
-    const getTotal = () => {
-        let total = 0;
-        for (let product of cart) {
-            total += Number(product.price)
-        }
-        return total;
+    const clearAll = () => {
+        dispatch({
+            type: 'DELETE_ALL'
+        });
     }
 
     const [pizzaList, setPizzaList] = useState([]);
@@ -37,6 +38,7 @@ function Home() {
 
     useEffect(() => {
         getPizza();
+        clearAll();
     }, []);
 
     const handleNext = () => {
@@ -46,9 +48,7 @@ function Home() {
     return (
         <>
         <div>
-            <h1>HOME</h1>
-            <h2>Total Price is: ${getTotal()}</h2>
-            <p>This is where the pizzas will be listed and order(s) can be created</p>
+            <h1>Step 1: Select what you'd like to order</h1>
             {pizzaList.map(pizza => <PizzaItem pizza={pizza} />)}
         </div>
         <button id="nextButton" onClick={handleNext}>NEXT</button>
