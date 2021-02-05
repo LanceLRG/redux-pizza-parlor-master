@@ -31,13 +31,17 @@ function CustomerInfo() {
         };
 
         console.log(`Adding ${newCustomer.customer_name} to customer db`);
-        dispatch({ type: 'ADD_INFO', payload: newCustomer });
+        dispatch(
+            { type: 'ADD_INFO', 
+            payload: newCustomer }
+            );
 
         setInputName('');
         setInputAddress('');
         setInputCity('');
         setInputZip('');
         setType('');
+
     };
 
     return (
@@ -88,11 +92,11 @@ function CustomerInfo() {
                         </tr>
                         <tr id='radio-btns'>
                             <td>
-                                <input type="radio" name="type" id="delivery" onClick={() => setType('Delivery')}/>
+                                <input type="radio" name="type" id="delivery" value="false" onClick={() => setType('Delivery')}/>
                                 <label for='delivery'>Delivery</label>
                             </td>
                             <td>
-                                <input type="radio" name="type" id="pick-up" onClick={() => setType('Pick-up')}/>
+                                <input type="radio" name="type" id="pick-up" value="false" onClick={() => setType('Pick-up')}/>
                                 <label for='pick-up'>Pick-up</label>
                             </td>
                         </tr>
