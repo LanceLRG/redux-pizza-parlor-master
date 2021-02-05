@@ -90,15 +90,15 @@ function CustomerInfo() {
                             <td>
                                 <input type="radio" name="type" id="delivery" onClick={() => setType('Delivery')}/>
                                 <label for='delivery'>Delivery</label>
-                            </td>
-                            <td>
+                            {/* </td>
+                            <td> */}
                                 <input type="radio" name="type" id="pick-up" onClick={() => setType('Pick-up')}/>
                                 <label for='pick-up'>Pick-up</label>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <p><input type="submit" value="Submit" /></p>
+                <p><input id='submit-btn' type="submit" value="Submit" /></p>
             </form>
         </>
     );
