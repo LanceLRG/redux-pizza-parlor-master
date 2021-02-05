@@ -1,53 +1,107 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import axios from 'axios';
-
+import { useSelector, useDispatch } from 'react-redux';
+import './CustomerInfo.css'
 
 function CustomerInfo() {
 
-    // const history = useHistory();
-    // console.log(history);
-    
-    // // Called when the submit button is pressed
-    // const addCustomer = () => {
-    //     // POST student to the server
-    //     axios({
-    //         method: 'POST',
-    //         url: '/students',
-    //         data: {github_name: newStudent}
-    //     }).then((response) => {
-    //         console.log(response);
-    //         history.push('/allStudents');
-    //     }).catch((err) => {
-    //         console.log(err);
-    //     });
-    // };
+    // "customer_name" VARCHAR (1000) NOT NULL,
+    // "street_address" VARCHAR(1000) NOT NULL,
+    // "city" VARCHAR(1000) NOT NULL,
+    // "zip" VARCHAR(20) NOT NULL,
 
-    // // Called when the submit button is pressed
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     addStudent(student);
-    //     clearStudentFields();
-    // }
+    const [inputName, setInputName] = useState('');
+    const [inputAddress, setInputAddress] = useState('');
+    const [inputCity, setInputCity] = useState('');
+    const [inputZip, setInputZip] = useState('');
+    const [type, setType] = useState('');
 
-    // // Clear fields of the form by reseting the user
-    // const clearStudentFields = () => {
-    //     setStudent('');
-    // }
+    const dispatch = useDispatch();
 
+    // Called when the submit button is pressed
+    const onSubmit = (event) => {
+
+        event.preventDefault();
+
+        const newCustomer = {
+            customer_name: inputName,
+            street_address: inputAddress,
+            city: inputCity,
+            zip: inputZip,
+            type: type,
+        };
+
+        console.log(`Adding ${newCustomer.customer_name} to customer db`);
+        dispatch({ type: 'ADD_INFO', payload: newCustomer });
+
+        setInputName('');
+        setInputAddress('');
+        setInputCity('');
+        setInputZip('');
+        setType('');
+    };
 
     return (
-        // <form onSubmit={handleSubmit}>
-        //     <input onChange={(event) => setStudent(event.target.value)} 
-        //             placeholder="GitHub username"
-        //             value={student} />
-        //     <input type="submit" value="Submit" />
-        // </form>
         <>
-        <h1>CUSTOMERINFO_PAGE</h1>
+            <h1>Add Customer Info</h1>
+            <form onSubmit={onSubmit}>
+                <table id='cust-info-table'>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p>Name</p>
+                            </td>
+                            <td>
+                                <input onChange={(event) => setInputName(event.target.value)}
+                                    placeholder="Customer Name"
+                                    value={inputName} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Address</p>
+                            </td>
+                            <td>
+                                <input onChange={(event) => setInputAddress(event.target.value)}
+                                    placeholder="Address"
+                                    value={inputAddress} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>City</p>
+                            </td>
+                            <td>
+                                <input onChange={(event) => setInputCity(event.target.value)}
+                                    placeholder="City"
+                                    value={inputCity} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Zip</p>
+                            </td>
+                            <td>
+                                <input onChange={(event) => setInputZip(event.target.value)}
+                                    placeholder="Zip"
+                                    value={inputZip} />
+                            </td>
+                        </tr>
+                        <tr id='radio-btns'>
+                            <td>
+                                <input type="radio" name="type" id="delivery" onClick={() => setType('Delivery')}/>
+                                <label for='delivery'>Delivery</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="type" id="pick-up" onClick={() => setType('Pick-up')}/>
+                                <label for='pick-up'>Pick-up</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><input type="submit" value="Submit" /></p>
+            </form>
         </>
     );
-    
 }
 
 

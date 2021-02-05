@@ -1,0 +1,21 @@
+#cust-info-table {
+    background-color: grey;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+}
+
+#cust-info-table td {
+    width: 50%;
+}
+#cust-info-table tr {
+    width: 100%;
+}
+
+#cust-info-table input {
+    margin-right: 5px;
+}
+
+#radio-btns {
+background-color: deeppink;
+}
