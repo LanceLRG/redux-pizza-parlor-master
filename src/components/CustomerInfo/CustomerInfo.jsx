@@ -13,7 +13,7 @@ function CustomerInfo() {
     const [inputAddress, setInputAddress] = useState('');
     const [inputCity, setInputCity] = useState('');
     const [inputZip, setInputZip] = useState('');
-    const [type, setType] = useState('')
+    const [type, setType] = useState('');
 
     const dispatch = useDispatch();
 
@@ -37,10 +37,8 @@ function CustomerInfo() {
         setInputAddress('');
         setInputCity('');
         setInputZip('');
-
+        setType('');
     };
-
-    const reduxStore = useSelector(store => store);
 
     return (
         <>
@@ -90,11 +88,11 @@ function CustomerInfo() {
                         </tr>
                         <tr id='radio-btns'>
                             <td>
-                                <input type="radio" name="type" id="delivery" value='delivery' checked />
+                                <input type="radio" name="type" id="delivery" onClick={() => setType('Delivery')}/>
                                 <label for='delivery'>Delivery</label>
                             </td>
                             <td>
-                                <input type="radio" name="type" id="pick-up" value='pick-up' />
+                                <input type="radio" name="type" id="pick-up" onClick={() => setType('Pick-up')}/>
                                 <label for='pick-up'>Pick-up</label>
                             </td>
                         </tr>
