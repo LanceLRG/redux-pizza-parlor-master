@@ -9,7 +9,7 @@ import logger from 'redux-logger';
 // set up reducters
 const pizzaReducer = (state = [], action) => {
     if (action.type === 'ADD_PIZZA') {
-        newState = action.payload;
+        let newState = action.payload;
         return [...state, newState]
     }
     if (action.type === 'DELETE_PIZZA') {
@@ -21,7 +21,7 @@ const pizzaReducer = (state = [], action) => {
 const formReducer = (state = [], action) => {
     //Customer info here
     if (action.type === 'ADD_INFO') {
-        newState = action.payload;
+       let newState = action.payload;
         return [...state, newState]
     }
     return state;
