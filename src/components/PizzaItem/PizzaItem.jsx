@@ -2,6 +2,7 @@ import './PizzaItem.css'
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
+
 function PizzaItem({pizza}) {
 
     const pizzaStore = useSelector(store => store.pizzaReducer)

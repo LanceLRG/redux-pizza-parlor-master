@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './CustomerInfo.css'
 import Admin from '../Admin/Admin';
+import {useHistory} from 'react-router-dom'
 
 
 function CustomerInfo() {
+
+    const history = useHistory();
 
     // "customer_name" VARCHAR (1000) NOT NULL,
     // "street_address" VARCHAR(1000) NOT NULL,
@@ -41,6 +44,7 @@ function CustomerInfo() {
         setInputCity('');
         setInputZip('');
         setType('');
+        history.push('/checkout');
 
     };
 

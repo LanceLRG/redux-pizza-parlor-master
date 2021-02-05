@@ -33,7 +33,7 @@ function Admin(  ) {
 
         <>
         <h1>ADMIN_PAGE</h1>
-        <table>
+        <table className="adminTable">
             <thead>
                 <tr>
                         <th> Name</th><th>Time Order Place</th><th>Type</th><th>Cost</th>

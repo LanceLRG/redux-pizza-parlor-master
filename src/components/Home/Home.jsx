@@ -39,6 +39,10 @@ function Home() {
         getPizza();
     }, []);
 
+    const handleNext = () => {
+        history.push('/customerinfo');
+    }
+
     return (
         <>
         <div>
@@ -47,7 +51,7 @@ function Home() {
             <p>This is where the pizzas will be listed and order(s) can be created</p>
             {pizzaList.map(pizza => <PizzaItem pizza={pizza} />)}
         </div>
-        <button id="nextButton">NEXT</button>
+        <button id="nextButton" onClick={handleNext}>NEXT</button>
         </>
     );
 }
