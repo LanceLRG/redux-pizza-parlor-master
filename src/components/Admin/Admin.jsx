@@ -36,14 +36,17 @@ function Admin(  ) {
         <table>
             <thead>
                 <tr>
-                        <td> Name</td><td>Time Order Place</td><td>Type</td><td>Cost</td>
+                        <th> Name</th><th>Time Order Place</th><th>Type</th><th>Cost</th>
                 </tr>
-
             </thead>
             <tbody>
-                    <tr>
-                        <td>{adminList.name}</td><td>{adminList.time}</td><td>{adminList.type}</td><td>{adminList.total}</td>
+                    {adminList.map((adminList) =>
+
+                        <tr key={adminList.id}>
+                            <td>{adminList.customer_name}</td><td>{adminList.time}</td><td>{adminList.type}</td><td>{adminList.total}</td>
+                    
                     </tr>
+                        )}
             </tbody>
         </table>
         </>
