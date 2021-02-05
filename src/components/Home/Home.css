@@ -1,0 +1,19 @@
+#nextButton {
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bolder;
+    background-color: rgb(60, 189, 240);
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    position: absolute;
+    right: 2%;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+#nextButton:hover {
+    opacity: 1;
+}

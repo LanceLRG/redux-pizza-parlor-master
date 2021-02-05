@@ -27,6 +27,8 @@ if (process.env.DATABASE_URL) {
 } else {
   config = {
     host: 'localhost', // Server hosting the postgres database
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
     port: 5432, // env var: PGPORT
     database: 'pizza_parlor', // You will need a database named `pizza_parlor` in order for this to work locally
     max: 10, // max number of clients in the pool

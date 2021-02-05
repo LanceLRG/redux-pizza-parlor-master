@@ -25,8 +25,7 @@ const pizzaReducer = (state = [], action) => {
 const formReducer = (state = [], action) => {
     //Customer info here
     if (action.type === 'ADD_INFO') {
-        console.log(action.payload);
-        let newState = action.payload;
+       let newState = action.payload;
         return [...state, newState]
     }
     return state;
